@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "polite", "polite\polite.csproj", "{F08ECE16-9E67-4F92-B575-F224A0F7E31C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "polite.Tests", "polite.Tests\polite.Tests.csproj", "{8D18D720-D672-4B1F-9B11-507E3C613346}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F08ECE16-9E67-4F92-B575-F224A0F7E31C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08ECE16-9E67-4F92-B575-F224A0F7E31C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08ECE16-9E67-4F92-B575-F224A0F7E31C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08ECE16-9E67-4F92-B575-F224A0F7E31C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D18D720-D672-4B1F-9B11-507E3C613346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D18D720-D672-4B1F-9B11-507E3C613346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D18D720-D672-4B1F-9B11-507E3C613346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D18D720-D672-4B1F-9B11-507E3C613346}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

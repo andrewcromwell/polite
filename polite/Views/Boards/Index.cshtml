@@ -1,0 +1,22 @@
+﻿@model IEnumerable<polite.Models.Board>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>polite-Chan</h2>
+
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Html.DisplayFor(modelItem => item.shortName)/">
+                @Html.DisplayFor(modelItem => item.longName)
+            </a>
+        </td>
+    </tr>
+}
+
+</table>
