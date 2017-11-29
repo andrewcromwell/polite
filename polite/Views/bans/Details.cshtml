@@ -1,0 +1,131 @@
+﻿@model polite.Models.Ban
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ban</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.allowRead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.allowRead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ipmd5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ipmd5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.global)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.global)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.boards)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boards)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.until)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.until)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staffnote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staffnote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appeal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appeal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appealAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appealAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

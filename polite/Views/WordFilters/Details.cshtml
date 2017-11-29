@@ -1,0 +1,59 @@
+﻿@model polite.Models.WordFilter
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WordFilter</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.word)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.word)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.replacedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.replacedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.boards)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boards)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.regex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regex)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

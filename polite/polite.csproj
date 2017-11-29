@@ -116,6 +116,14 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -158,6 +166,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\PagedList.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -175,21 +184,46 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Sections\Create.cshtml" />
+    <Content Include="Views\Sections\Delete.cshtml" />
+    <Content Include="Views\Sections\Details.cshtml" />
+    <Content Include="Views\Sections\Edit.cshtml" />
+    <Content Include="Views\Sections\Index.cshtml" />
     <Content Include="Views\Boards\Create.cshtml" />
     <Content Include="Views\Boards\Delete.cshtml" />
     <Content Include="Views\Boards\Details.cshtml" />
     <Content Include="Views\Boards\Edit.cshtml" />
     <Content Include="Views\Boards\Index.cshtml" />
-    <Content Include="Views\BThreads\Create.cshtml" />
-    <Content Include="Views\BThreads\Delete.cshtml" />
-    <Content Include="Views\BThreads\Details.cshtml" />
-    <Content Include="Views\BThreads\Edit.cshtml" />
-    <Content Include="Views\BThreads\Index.cshtml" />
-    <Content Include="Views\TComments\Create.cshtml" />
-    <Content Include="Views\TComments\Delete.cshtml" />
-    <Content Include="Views\TComments\Details.cshtml" />
-    <Content Include="Views\TComments\Edit.cshtml" />
-    <Content Include="Views\TComments\Index.cshtml" />
+    <Content Include="Views\Posts\Create.cshtml" />
+    <Content Include="Views\Posts\Delete.cshtml" />
+    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\Posts\Edit.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Bans\Create.cshtml" />
+    <Content Include="Views\Bans\Delete.cshtml" />
+    <Content Include="Views\Bans\Details.cshtml" />
+    <Content Include="Views\Bans\Edit.cshtml" />
+    <Content Include="Views\Bans\Index.cshtml" />
+    <Content Include="Views\BannedHashes\Create.cshtml" />
+    <Content Include="Views\BannedHashes\Delete.cshtml" />
+    <Content Include="Views\BannedHashes\Details.cshtml" />
+    <Content Include="Views\BannedHashes\Edit.cshtml" />
+    <Content Include="Views\BannedHashes\Index.cshtml" />
+    <Content Include="Views\LoginAttempts\Create.cshtml" />
+    <Content Include="Views\LoginAttempts\Delete.cshtml" />
+    <Content Include="Views\LoginAttempts\Details.cshtml" />
+    <Content Include="Views\LoginAttempts\Edit.cshtml" />
+    <Content Include="Views\LoginAttempts\Index.cshtml" />
+    <Content Include="Views\StaffMembers\Create.cshtml" />
+    <Content Include="Views\StaffMembers\Delete.cshtml" />
+    <Content Include="Views\StaffMembers\Details.cshtml" />
+    <Content Include="Views\StaffMembers\Edit.cshtml" />
+    <Content Include="Views\StaffMembers\Index.cshtml" />
+    <Content Include="Views\WordFilters\Create.cshtml" />
+    <Content Include="Views\WordFilters\Delete.cshtml" />
+    <Content Include="Views\WordFilters\Details.cshtml" />
+    <Content Include="Views\WordFilters\Edit.cshtml" />
+    <Content Include="Views\WordFilters\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,22 +238,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BannedHashesController.cs" />
+    <Compile Include="Controllers\BansController.cs" />
     <Compile Include="Controllers\BoardsController.cs" />
-    <Compile Include="Controllers\BThreadsController.cs" />
-    <Compile Include="Controllers\TCommentsController.cs" />
-    <Compile Include="Migrations\201710260033277_Initial.cs" />
-    <Compile Include="Migrations\201710260033277_Initial.Designer.cs">
-      <DependentUpon>201710260033277_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710260320109_Initial1.cs" />
-    <Compile Include="Migrations\201710260320109_Initial1.Designer.cs">
-      <DependentUpon>201710260320109_Initial1.cs</DependentUpon>
+    <Compile Include="Controllers\LoginAttemptsController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="Controllers\SectionsController.cs" />
+    <Compile Include="Controllers\StaffMembersController.cs" />
+    <Compile Include="Controllers\WordFiltersController.cs" />
+    <Compile Include="Migrations\201711290349160_Initial.cs" />
+    <Compile Include="Migrations\201711290349160_Initial.Designer.cs">
+      <DependentUpon>201711290349160_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Ban.cs" />
+    <Compile Include="Models\BannedHash.cs" />
     <Compile Include="Models\Board.cs" />
-    <Compile Include="Models\BThread.cs" />
     <Compile Include="Models\ImageBoardDBContext.cs" />
-    <Compile Include="Models\TComment.cs" />
+    <Compile Include="Models\LoginAttempt.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\StaffMember.cs" />
+    <Compile Include="Models\WordFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -229,11 +269,8 @@
     <Folder Include="Content\less\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710260033277_Initial.resx">
-      <DependentUpon>201710260033277_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710260320109_Initial1.resx">
-      <DependentUpon>201710260320109_Initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711290349160_Initial.resx">
+      <DependentUpon>201711290349160_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

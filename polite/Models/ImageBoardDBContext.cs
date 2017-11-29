@@ -9,9 +9,14 @@ namespace polite.Models
 {
     public class ImageBoardDBContext : DbContext
     {
+        public DbSet<Ban> Bans { get; set; }
+        public DbSet<BannedHash> BannedHashes { get; set; }
         public DbSet<Board> Boards { get; set; }
-        public DbSet<BThread> BThreads { get; set; }
-        public DbSet<TComment> TComments { get; set; }
+        public DbSet<LoginAttempt> LoginAttempts { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<StaffMember> StaffMembers { get; set; }
+        public DbSet<WordFilter> WordFilters { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

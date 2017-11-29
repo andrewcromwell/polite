@@ -10,112 +10,107 @@ using polite.Models;
 
 namespace polite.Controllers
 {
-    public class BoardsController : Controller
+    public class LoginAttemptsController : Controller
     {
         private ImageBoardDBContext db = new ImageBoardDBContext();
 
-        // GET: Boards
+        // GET: LoginAttempts
         public ActionResult Index()
         {
-            var boards = db.Boards.Include(b => b.Section);
-            return View(boards.ToList());
+            return View(db.LoginAttempts.ToList());
         }
 
-        // GET: Boards/Details/5
+        // GET: LoginAttempts/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Board board = db.Boards.Find(id);
-            if (board == null)
+            LoginAttempt loginAttempt = db.LoginAttempts.Find(id);
+            if (loginAttempt == null)
             {
                 return HttpNotFound();
             }
-            return View(board);
+            return View(loginAttempt);
         }
 
-        // GET: Boards/Create
+        // GET: LoginAttempts/Create
         public ActionResult Create()
         {
-            ViewBag.sectionID = new SelectList(db.Sections, "ID", "name");
             return View();
         }
 
-        // POST: Boards/Create
+        // POST: LoginAttempts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,order,shortName,type,start,longName,description,sectionID,maxImageSize,maxPages,maxAge,markPage,maxReplies,messageLength,createdOn,locked,includeHeader,redirectToThread,anonymous,forcedAnon,trial,popular,defaultStyle,useIdentities,maxPostId")] Board board)
+        public ActionResult Create([Bind(Include = "ID,username,IP,timestamp")] LoginAttempt loginAttempt)
         {
             if (ModelState.IsValid)
             {
-                db.Boards.Add(board);
+                db.LoginAttempts.Add(loginAttempt);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.sectionID = new SelectList(db.Sections, "ID", "name", board.sectionID);
-            return View(board);
+            return View(loginAttempt);
         }
 
-        // GET: Boards/Edit/5
+        // GET: LoginAttempts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Board board = db.Boards.Find(id);
-            if (board == null)
+            LoginAttempt loginAttempt = db.LoginAttempts.Find(id);
+            if (loginAttempt == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.sectionID = new SelectList(db.Sections, "ID", "name", board.sectionID);
-            return View(board);
+            return View(loginAttempt);
         }
 
-        // POST: Boards/Edit/5
+        // POST: LoginAttempts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,order,shortName,type,start,longName,description,sectionID,maxImageSize,maxPages,maxAge,markPage,maxReplies,messageLength,createdOn,locked,includeHeader,redirectToThread,anonymous,forcedAnon,trial,popular,defaultStyle,useIdentities,maxPostId")] Board board)
+        public ActionResult Edit([Bind(Include = "ID,username,IP,timestamp")] LoginAttempt loginAttempt)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(board).State = EntityState.Modified;
+                db.Entry(loginAttempt).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.sectionID = new SelectList(db.Sections, "ID", "name", board.sectionID);
-            return View(board);
+            return View(loginAttempt);
         }
 
-        // GET: Boards/Delete/5
+        // GET: LoginAttempts/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Board board = db.Boards.Find(id);
-            if (board == null)
+            LoginAttempt loginAttempt = db.LoginAttempts.Find(id);
+            if (loginAttempt == null)
             {
                 return HttpNotFound();
             }
-            return View(board);
+            return View(loginAttempt);
         }
 
-        // POST: Boards/Delete/5
+        // POST: LoginAttempts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Board board = db.Boards.Find(id);
-            db.Boards.Remove(board);
+            LoginAttempt loginAttempt = db.LoginAttempts.Find(id);
+            db.LoginAttempts.Remove(loginAttempt);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

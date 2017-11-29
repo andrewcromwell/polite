@@ -1,0 +1,112 @@
+﻿@model IEnumerable<polite.Models.Ban>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.expired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allowRead)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ipmd5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.global)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.boards)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.until)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staffnote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.appeal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.appealAt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.allowRead)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ipmd5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.global)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.boards)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.until)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staffnote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.appeal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.appealAt)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

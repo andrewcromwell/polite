@@ -5,16 +5,166 @@
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
-<h2>polite-Chan</h2>
+<h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Section.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shortName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.longName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maxImageSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maxPages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maxAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.markPage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maxReplies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.messageLength)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.locked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.includeHeader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.redirectToThread)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.anonymous)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.forcedAnon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.popular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.defaultStyle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.useIdentities)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maxPostId)
+        </th>
+        <th></th>
+    </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            <a href="@Html.DisplayFor(modelItem => item.shortName)/">
-                @Html.DisplayFor(modelItem => item.longName)
-            </a>
+            @Html.DisplayFor(modelItem => item.Section.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.longName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxImageSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxPages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.markPage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxReplies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.messageLength)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.locked)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.includeHeader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.redirectToThread)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.anonymous)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.forcedAnon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.popular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.defaultStyle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.useIdentities)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxPostId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
