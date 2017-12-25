@@ -1,0 +1,30 @@
+﻿@model IEnumerable<polite.ViewModels.BoardsBySection>
+<link rel="stylesheet" media="screen" href="~/content/css/blueish.css" />
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Polite-chan</h2>
+
+
+<div id="boards">
+        Boards
+
+        @foreach (var item in Model)
+        {
+                <h3>@Html.DisplayFor(modelItem => item.sectionName)</h3>
+                <ul>
+                    @foreach (var board in item.boards)
+                    {
+                         <li>
+                            <a class="boardlink" href="@board.shortName">
+                                @Html.DisplayFor(modelItem => board.longName)
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+        }
+</div>

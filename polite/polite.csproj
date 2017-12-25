@@ -225,6 +225,7 @@
     <Content Include="Views\WordFilters\Details.cshtml" />
     <Content Include="Views\WordFilters\Edit.cshtml" />
     <Content Include="Views\WordFilters\Index.cshtml" />
+    <Content Include="Views\Sections\Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -263,6 +264,7 @@
     <Compile Include="Models\WordFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\BoardsBySection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

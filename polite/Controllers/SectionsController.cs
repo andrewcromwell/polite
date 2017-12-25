@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using polite.Models;
+using polite.ViewModels;
 
 namespace polite.Controllers
 {
@@ -18,6 +19,21 @@ namespace polite.Controllers
         public ActionResult Index()
         {
             return View(db.Sections.ToList());
+        }
+
+        [Route("")]
+        public ActionResult Home()
+        {
+            var boards = db.Boards.Include(b => b.Section);
+            List<BoardsBySection> data = new List<BoardsBySection>();
+            foreach (var s in db.Sections)
+            {
+                BoardsBySection bbs = new BoardsBySection();
+                bbs.sectionName = s.name;
+                bbs.boards = s.Boards.ToList();
+                data.Add(bbs);
+            }
+            return View(data.ToList());
         }
 
         // GET: Sections/Details/5
