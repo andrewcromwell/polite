@@ -227,6 +227,7 @@
     <Content Include="Views\WordFilters\Index.cshtml" />
     <Content Include="Views\Sections\Home.cshtml" />
     <Content Include="Views\Boards\PostsByBoard.cshtml" />
+    <Content Include="Views\Posts\Thread.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

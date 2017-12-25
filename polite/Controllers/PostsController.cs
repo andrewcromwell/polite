@@ -21,6 +21,22 @@ namespace polite.Controllers
             return View(posts.ToList());
         }
 
+        // GET: Boards/Details/5
+        [Route("{shortName}/thread/{id:int}")]
+        public ActionResult Thread(string shortName, int? id)
+        {
+            if (shortName == null || id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Post post = db.Posts.Where(p => p.Board.shortName.Equals(shortName) && p.ID == id).FirstOrDefault();
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+
         // GET: Posts/Details/5
         public ActionResult Details(int? id)
         {
