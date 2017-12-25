@@ -1,0 +1,47 @@
+﻿@model IEnumerable<polite.Models.Post>
+<link rel="stylesheet" media="screen" href="~/content/css/blueish.css" />
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>/@ViewBag.shortName/ - @ViewBag.longName</h2>
+
+<div>
+    <h4>Board</h4>
+    <hr />
+    @foreach (var item in Model)
+    {
+        <div id="t@(item.ID)" class="thread">
+            <div id="pc@(item.ID)" class="postContainer opContainer">
+                <div id="p@(item.ID)" class="post op">
+                    <div id="pi@(item.ID)" class="postInfo">
+                        <span class="subject">
+                            @item.subject
+                        </span>
+                        <span class="nameBlock">
+                            <span class="name">
+                                @item.name
+                            </span>
+                        </span>
+                        <span class="dateTime">
+                            @item.timestamp
+                        </span>
+                        <span class="postNum">
+                            <a href="@ViewBag.shortName/thread/@item.ID/#p@(item.ID)" title="Link to this post">No.</a>
+                            @item.ID
+                        </span>
+                        <span>
+                            [<a class="replyLink" href="@ViewBag.shortName/thread/@item.ID">Reply</a>]
+                        </span>
+                    </div>
+                    <blockquote id="m@item.id" class="postMessage">
+                        @item.message
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    }
+    <hr />
+</div>

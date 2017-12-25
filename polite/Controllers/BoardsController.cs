@@ -22,6 +22,26 @@ namespace polite.Controllers
         }
 
         // GET: Boards/Details/5
+        [Route("{shortName}")]
+        public ActionResult PostsByBoard(string shortName)
+        {
+            if (shortName == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Board board = db.Boards.Where(b => b.shortName.Equals(shortName)).FirstOrDefault();
+            if (board == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.shortName = board.shortName;
+            ViewBag.longName = board.longName;
+            var posts = board.Posts.Where((p => p.parentId == null));
+            return View(posts);
+        }
+
+        // GET: Boards/Details/5
+        [Route("{id:int}")]
         public ActionResult Details(int? id)
         {
             if (id == null)
