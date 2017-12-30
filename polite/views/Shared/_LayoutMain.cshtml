@@ -7,8 +7,19 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    <div id="header">
+        @{Html.RenderAction("BoardListing", "Boards");}
+    </div>
     <div>
         @RenderBody()
+    </div>
+    <div id="footer">
+        @{Html.RenderAction("BoardListing", "Boards");}
+        <div id="absbot" class="absBotText">
+            <span class="absBotDisclaimer">
+                All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.
+            </span>
+        </div>
     </div>
 </body>
 </html>

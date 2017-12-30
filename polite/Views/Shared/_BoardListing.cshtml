@@ -1,0 +1,24 @@
+﻿@model IEnumerable<polite.Models.Board>
+
+<div id="boardNavDesktop" class="desktop">
+    <span class="boardList">
+        @{ int counter = 0; }
+        [
+        @foreach (var item in Model)
+        {
+            <a class="boardlink" href="/@item.shortName">
+                @Html.DisplayFor(modelItem => item.shortName)
+            </a>
+            counter += 1;
+            if (counter < Model.Count())
+            {
+                @:/
+            }
+        }
+        ]
+    </span>
+    <span id="navright">
+        [<a href="/" target="_top">Home</a>]
+    </span>
+</div>
+

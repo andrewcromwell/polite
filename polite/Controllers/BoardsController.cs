@@ -21,6 +21,13 @@ namespace polite.Controllers
             return View(boards.ToList());
         }
 
+        [ChildActionOnly]
+        public ActionResult BoardListing()
+        {
+            var boards = db.Boards;
+            return PartialView("_BoardListing", boards.ToList());
+        }
+
         // GET: Boards/Details/5
         [Route("{shortName}")]
         public ActionResult PostsByBoard(string shortName)

@@ -229,6 +229,8 @@
     <Content Include="Views\Boards\PostsByBoard.cshtml" />
     <Content Include="Views\Posts\Thread.cshtml" />
     <Content Include="Views\Shared\_LayoutMain.cshtml" />
+    <Content Include="Views\Shared\_BoardListing.cshtml" />
+    <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
