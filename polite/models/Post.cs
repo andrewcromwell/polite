@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,7 +9,11 @@ namespace polite.Models
 {
     public class Post
     {
+        [Key]
+        [Column(Order=1)]
         public int ID { get; set; }
+        [Key]
+        [Column(Order=2)]
         public int BoardID { get; set; }
         public int? parentId { get; set; }
         public string name { get; set; }
@@ -32,7 +38,7 @@ namespace polite.Models
         public bool locked { get; set; }
         public DateTime? deletedTimestamp { get; set; }
         public bool isDeleted { get; set; }
-        public DateTime bumped { get; set; }
+        public DateTime? bumped { get; set; }
 
         public virtual Post Parent { get; set; }
         public virtual ICollection<Post> Children { get; set; }

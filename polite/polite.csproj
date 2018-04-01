@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -257,6 +258,10 @@
     <Compile Include="Migrations\201711290349160_Initial.Designer.cs">
       <DependentUpon>201711290349160_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804012341261_CompositeKey.cs" />
+    <Compile Include="Migrations\201804012341261_CompositeKey.Designer.cs">
+      <DependentUpon>201804012341261_CompositeKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ban.cs" />
     <Compile Include="Models\BannedHash.cs" />
@@ -278,6 +283,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711290349160_Initial.resx">
       <DependentUpon>201711290349160_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804012341261_CompositeKey.resx">
+      <DependentUpon>201804012341261_CompositeKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
