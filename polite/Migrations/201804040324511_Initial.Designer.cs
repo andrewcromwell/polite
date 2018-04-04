@@ -7,13 +7,13 @@ namespace polite.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CompositeKey : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CompositeKey));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804012341261_CompositeKey"; }
+            get { return "201804040324511_Initial"; }
         }
         
         string IMigrationMetadata.Source

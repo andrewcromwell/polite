@@ -9,12 +9,11 @@ namespace polite.Models
 {
     public class Post
     {
-        [Key]
-        [Column(Order=1)]
+        [Key, Column(Order=1)]
         public int ID { get; set; }
-        [Key]
-        [Column(Order=2)]
+        [Key, Column(Order=3), ForeignKey("Parent")]
         public int BoardID { get; set; }
+        [ForeignKey("Parent"), Column(Order =2)]
         public int? parentId { get; set; }
         public string name { get; set; }
         public string tripcode { get; set; }
@@ -40,6 +39,7 @@ namespace polite.Models
         public bool isDeleted { get; set; }
         public DateTime? bumped { get; set; }
 
+        [ForeignKey("BoardID, parentId")]
         public virtual Post Parent { get; set; }
         public virtual ICollection<Post> Children { get; set; }
         public virtual Board Board { get; set; }

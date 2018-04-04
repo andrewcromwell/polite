@@ -254,13 +254,9 @@
     <Compile Include="Controllers\SectionsController.cs" />
     <Compile Include="Controllers\StaffMembersController.cs" />
     <Compile Include="Controllers\WordFiltersController.cs" />
-    <Compile Include="Migrations\201711290349160_Initial.cs" />
-    <Compile Include="Migrations\201711290349160_Initial.Designer.cs">
-      <DependentUpon>201711290349160_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804012341261_CompositeKey.cs" />
-    <Compile Include="Migrations\201804012341261_CompositeKey.Designer.cs">
-      <DependentUpon>201804012341261_CompositeKey.cs</DependentUpon>
+    <Compile Include="Migrations\201804040324511_Initial.cs" />
+    <Compile Include="Migrations\201804040324511_Initial.Designer.cs">
+      <DependentUpon>201804040324511_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ban.cs" />
@@ -281,11 +277,8 @@
     <Folder Include="Content\css\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711290349160_Initial.resx">
-      <DependentUpon>201711290349160_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804012341261_CompositeKey.resx">
-      <DependentUpon>201804012341261_CompositeKey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804040324511_Initial.resx">
+      <DependentUpon>201804040324511_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
