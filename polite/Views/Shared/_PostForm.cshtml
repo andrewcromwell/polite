@@ -1,0 +1,48 @@
+﻿@model int
+
+@using (Html.BeginForm("CreateReply", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <input name="resto" id="resto" value="@(Model)" type="hidden" />
+    <table id="postForm" class="postForm" style="display: table;">
+        <tbody>
+            <tr data-type="name">
+                <td>Name</td>
+                <td>
+                    <input name="name" id="name" tabindex="1" placeholder="Anonymous" type="text" />
+                </td>
+            </tr>
+            <tr data-type="Options">
+                <td>Options</td>
+                <td>
+                    <input name="email" id="email" tabindex="2" type="text" />
+                </td>
+            </tr>
+            <tr data-type="subject">
+                <td>Subject</td>
+                <td>
+                    <input name="subject" id="subject" tabindex="3" type="text" />
+                    <input value="Post" tabindex="6" type="submit" />
+                </td>
+            </tr>
+            <tr data-type="Comment">
+                <td>Comment</td>
+                <td>
+                    <textarea name="comment" id="comment" cols="48" rows="4" tabindex="4" wrap="soft"></textarea>
+                </td>
+            </tr>
+            <tr data-type="password">
+                <td>Password</td>
+                <td>
+                    <input name="password" id="password" tabindex="6" type="password" />
+                </td>
+            </tr>
+            <tr data-type="File">
+                <td>File</td>
+                <td>
+                    <input id="postFile" name="postFile" tabindex="6" type="file" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using polite.Models;
+using polite.ViewModels;
 
 namespace polite.Controllers
 {
@@ -35,6 +36,14 @@ namespace polite.Controllers
                 return HttpNotFound();
             }
             return View(post);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("{shortName}/post")]
+        public ActionResult CreateReply([Bind(Include = "resto,name,email,subject,comment,password")] NewPost post, HttpPostedFileBase postFile, string shortName)
+        {
+            throw new NotImplementedException();
         }
 
         // GET: Posts/Details/5

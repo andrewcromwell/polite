@@ -8,6 +8,9 @@
 <div class="boardBanner">
     <div class="boardTitle">/@Model.Board.shortName/ - @Model.Board.longName</div>
 </div>
+<hr />
+
+@Html.Partial("_PostForm", Model.ID)
 
 <div>
     <hr />
