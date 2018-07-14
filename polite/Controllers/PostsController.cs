@@ -8,12 +8,13 @@ using System.Web;
 using System.Web.Mvc;
 using polite.Models;
 using polite.ViewModels;
+using polite.Services;
 
 namespace polite.Controllers
 {
     public class PostsController : Controller
     {
-        private ImageBoardDBContext db = new ImageBoardDBContext();
+        private PostService _service = new PostService();
 
         // GET: Boards/Details/5
         [Route("{shortName}/thread/{id:int}")]
@@ -23,7 +24,7 @@ namespace polite.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Where(p => p.Board.shortName.Equals(shortName) && p.ID == id).FirstOrDefault();
+            Post post = _service.GetPostByBoardAndID(shortName, (int)id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -43,7 +44,7 @@ namespace polite.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _service.Dispose();
             }
             base.Dispose(disposing);
         }

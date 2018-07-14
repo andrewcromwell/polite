@@ -265,6 +265,7 @@
     <Compile Include="Models\StaffMember.cs" />
     <Compile Include="Models\WordFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PostService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BoardsBySection.cs" />
     <Compile Include="ViewModels\NewPost.cs" />
