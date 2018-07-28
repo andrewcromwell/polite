@@ -10,6 +10,7 @@
 </div>
 <hr />
 
+<!-- Display input form -->
 @Html.Partial("_PostForm", Model.ID)
 
 <div>
@@ -17,6 +18,18 @@
     <div id="t@(Model.ID)" class="thread">
         <div id="pc@(Model.ID)" class="postContainer opContainer">
             <div id="p@(Model.ID)" class="post op">
+                <!-- File stuff -->
+                <div id="f@(Model.ID)" class="file">
+                    <div id="fT@(Model.ID)" class="fileText">
+                        File:
+                        <a href="~/Content/Images/@(Model.Board.shortName)/@(Model.file)@(Model.fileType)" target="_blank">@(Model.fileOriginal)</a>
+                        (@(Model.fileSize) B, @(Model.imageW), @(Model.imageH))
+                    </div>
+                    <a class="fileThumb" href="~/Content/Images/@(Model.Board.shortName)/@(Model.file)@(Model.fileType)" target="_blank">
+                        <img src="~/Content/Images/@(Model.Board.shortName)/@(Model.file)s.jpg" />
+                    </a>
+                </div>
+                <!-- /file stuff -->
                 <div id="pi@(Model.ID)" class="postInfo">
                     <span class="subject">
                         @Model.subject
@@ -61,6 +74,19 @@
                             @item.ID
                         </span>
                     </div>
+                    @if (!item.file.IsEmpty())
+                     {
+                            <div id="f@(item.ID)" class="file">
+                                <div id="fT@(item.ID)" class="fileText">
+                                    File:
+                                    <a href="~/Content/Images/@(item.Board.shortName)/@(item.file)@(item.fileType)" target="_blank">@(item.fileOriginal)</a>
+                                    (@(item.fileSize) B, @(item.imageW), @(item.imageH))
+                                </div>
+                                <a class="fileThumb" href="~/Content/Images/@(item.Board.shortName)/@(item.file)@(item.fileType)" target="_blank">
+                                    <img src="~/Content/Images/@(item.Board.shortName)/@(item.file)s.jpg" />
+                                </a>
+                            </div>
+                     }
                     <blockquote id="m@(item.ID)" class="postMessage">
                         @item.message
                     </blockquote>

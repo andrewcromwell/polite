@@ -37,7 +37,19 @@ namespace polite.Controllers
         [Route("{shortName}/post")]
         public ActionResult CreateReply([Bind(Include = "resto,name,email,subject,comment,password")] NewPost post, HttpPostedFileBase postFile, string shortName)
         {
-            throw new NotImplementedException();
+            bool valid = ModelState.IsValid;
+            PostService.PostResult result = _service.CreatePost(post, 
+                postFile, 
+                shortName, 
+                ModelState,
+                Request.UserHostAddress);
+            if (result == PostService.PostResult.NewReplyCreated)
+                return RedirectToAction("Thread", "Posts",
+                    new { shortName = shortName, id = post.resto });
+            if (result == PostService.PostResult.NewThreadCreated)
+                return RedirectToAction("PostsByBoard", "Boards",
+                    new { shortName = shortName });
+            return RedirectToAction("Home", "Posts");
         }
 
         protected override void Dispose(bool disposing)
