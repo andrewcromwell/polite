@@ -35,6 +35,7 @@ namespace polite.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("{shortName}/post")]
+        [ValidateInput(false)]
         public ActionResult CreateReply([Bind(Include = "resto,name,email,subject,comment,password")] NewPost post, HttpPostedFileBase postFile, string shortName)
         {
             bool valid = ModelState.IsValid;

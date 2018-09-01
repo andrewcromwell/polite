@@ -52,7 +52,7 @@
                         </span>
                     </div>
                     <blockquote id="m@item.id" class="postMessage">
-                        @item.message
+                        @Html.EncodeAndProcess(item.message, item)
                     </blockquote>
                 </div>
             </div>

@@ -48,7 +48,7 @@
                     </span>
                 </div>
                 <blockquote id="m@(Model.ID)" class="postMessage">
-                    @Model.message
+                    @Html.EncodeAndProcess(@Model.message, @Model)
                 </blockquote>
             </div>
         </div>
@@ -88,7 +88,7 @@
                             </div>
                      }
                     <blockquote id="m@(item.ID)" class="postMessage">
-                        @item.message
+                        @Html.EncodeAndProcess(@item.message, item)
                     </blockquote>
                 </div>
             </div>

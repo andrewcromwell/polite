@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace polite.Models
 {
@@ -19,6 +20,7 @@ namespace polite.Models
         public string tripcode { get; set; }
         public string email { get; set; }
         public string subject { get; set; }
+        [AllowHtml]
         public string message { get; set; }
         public string password { get; set; }
         public string file { get; set; }

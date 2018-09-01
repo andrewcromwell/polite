@@ -254,6 +254,7 @@
     <Compile Include="Controllers\SectionsController.cs" />
     <Compile Include="Controllers\StaffMembersController.cs" />
     <Compile Include="Controllers\WordFiltersController.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Helpers\HttpPostedFileBaseExtensions.cs" />
     <Compile Include="Migrations\201804040324511_Initial.cs" />
     <Compile Include="Migrations\201804040324511_Initial.Designer.cs">

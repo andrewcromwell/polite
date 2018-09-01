@@ -223,6 +223,82 @@ namespace polite.Services
             db.SaveChanges();
         }
 
+        public string getLinkFor(string originalText, int postID, Post post)
+        {
+            IQueryable<Post> query =
+                db.Posts.Where(p => !p.isDeleted && 
+                p.BoardID == post.BoardID && 
+                p.ID == postID);
+            int numberOfMatches = query.Count();
+            if (numberOfMatches == 0) // deadlink
+            {
+                return String.Format("<span class=\"deadlink\">{0}</span>", originalText);
+            }
+            Post externalPost = query.Single();
+            if (externalPost.parentId.HasValue &&
+                post.parentId.HasValue &&
+                externalPost.parentId == post.parentId) // two separate posts in same thread
+            {
+                return String.Format("<a class=\"quotelink\" href=\"#p{0}\">{1}</a>", postID, originalText);
+            }
+            else if (!externalPost.parentId.HasValue) // external post is OP
+            {
+                return String.Format("<a class=\"quotelink\" href=\"/{0}/thread/{1}#p{2}\">{3}</a>",
+                    post.Board.shortName, postID, postID, originalText);
+            }
+            else if (externalPost.parentId.HasValue && // two separate posts in different threads
+                post.parentId.HasValue &&
+                externalPost.parentId != post.parentId)
+            {
+                return String.Format("<a class=\"quotelink\" href=\"/{0}/thread/{1}#p{2}\">{3}</a>",
+                    post.Board.shortName, externalPost.parentId, postID, originalText);
+            }
+            else if (!post.parentId.HasValue && // OP referring to children (guessing)
+                externalPost.parentId.HasValue &&
+                externalPost.parentId == post.ID)
+            {
+                return String.Format("<a class=\"quotelink\" href=\"#p{0}\">{1}</a>", postID, originalText);
+            }
+            else if (!post.parentId.HasValue && // OP referring to someone else (not OP)
+                externalPost.parentId.HasValue &&
+                externalPost.parentId == post.ID)
+            {
+                return String.Format("<a class=\"quotelink\" href=\"/{0}/thread/{1}#p{2}\">{3}</a>",
+                    post.Board.shortName, externalPost.parentId, postID, originalText);
+            }
+            else if (!post.parentId.HasValue && // OP referring to another OP
+                !externalPost.parentId.HasValue)
+            {
+                return String.Format("<a class=\"quotelink\" href=\"/{0}/thread/{1}#p{2}\">{3}</a>",
+                    post.Board.shortName, postID, postID, originalText);
+            }
+            else
+                return originalText;
+        }
+
+        public string getCrossLinkFor(string originalText, string refBoard, int postID, Post post)
+        {
+            IQueryable<Board> query = db.Boards.Where(b => b.shortName.Equals(refBoard));
+            int boardsCount = query.Count();
+            if (boardsCount == 0)
+                return originalText;
+            Board externalBoard = query.Single();
+
+            IQueryable<Post> PostQuery = db.Posts.Where(p => !p.isDeleted &&
+                p.BoardID == externalBoard.ID &&
+                p.ID == postID);
+
+            if (PostQuery.Count() == 0)
+                return originalText;
+
+            Post externalPost = PostQuery.Single();
+
+            int parentID = externalPost.parentId.HasValue ? (int) externalPost.parentId : externalPost.ID;
+
+            return String.Format("<a class=\"quotelink\" href=\"/{0}/thread/{1}#p{2}\">{3}</a>",
+                refBoard, parentID, postID, originalText);
+        }
+
         public void Dispose()
         {
             db.Dispose();
