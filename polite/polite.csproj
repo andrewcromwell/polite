@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\blueish.min.css" />
+    <Content Include="Content\Images\base\blue-gradient.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="gulpfile.js" />
     <Content Include="packages.config">
@@ -279,7 +280,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804040324511_Initial.resx">
